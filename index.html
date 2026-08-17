@@ -5,16 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فروشگاه لوازم جانبی موبایل</title>
     <style>
-        /* استایل کلی */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        {
+            margin: 0;padding: 0; box-sizing: border-box;
         }
         body {
-            font-family: Tahoma, sans-serif;
-            background: #f0f2f5;
-            padding: 20px;
+            font-family: Tahoma, sans-serif; background: #f0f2f5; padding: 20px;
         }
         .container {
             background:blak;
@@ -138,15 +133,11 @@
 
 <div class="container">
     <h1>📱 لوازم جانبی موبایل</h1>
-
-    <!-- فرم اطلاعات کاربر -->
     <label>نام و نام خانوادگی:</label>
     <input type="text" id="fullName" placeholder>
 
     <label>آدرس:</label>
     <textarea id="address" placeholder="آدرس کامل خود را وارد کنید..."></textarea>
-
-    <!-- لیست کالاها --> 
     <div style="margin-top: 20px;">
         <p style="font-weight: bold; color: #2c3e50; margin-bottom: 5px;">🛍️ محصولات:</p>
 
@@ -180,11 +171,7 @@
             <span class="price">۱,۱۰۰,۰۰۰ تومان</span>
         </div>
     </div>
-
-    <!-- دکمه ثبت سفارش -->
     <button class="btn" onclick="submitOrder()">📝 ثبت سفارش</button>
-
-    <!-- پیام نتیجه -->
     <div id="orderMessage"></div>
 
     <div class="footer-note">
@@ -194,28 +181,21 @@
 
 <script>
     function submitOrder() {
-        // ۱. گرفتن اطلاعات از کادرها
         var name = document.getElementById('fullName').value.trim();
         var address = document.getElementById('address').value.trim();
         var msgBox = document.getElementById('orderMessage');
-
-        // ۲. چک کردن نام
         if (name === '') {
             msgBox.innerHTML = '⚠️ لطفاً نام و نام خانوادگی خود را وارد کنید.';
             msgBox.className = 'message-error';
             msgBox.style.display = 'block';
             return;
         }
-
-        // ۳. چک کردن آدرس
         if (address === '') {
             msgBox.innerHTML = '⚠️ لطفاً آدرس خود را وارد کنید.';
             msgBox.className = 'message-error';
             msgBox.style.display = 'block';
             return;
         }
-
-        // ۴. چک کردن کالاهای انتخاب‌شده
         var selected = document.querySelectorAll('.product:checked');
         if (selected.length === 0) {
             msgBox.innerHTML = '⚠️ حداقل یک کالا را انتخاب کنید.';
@@ -223,13 +203,10 @@
             msgBox.style.display = 'block';
             return;
         }
-
-        // ۵. همه‌چیز درست است = پیام موفقیت
         msgBox.innerHTML = '✅ ' + name + ' عزیز، سفارش شما با موفقیت ثبت شد.';
         msgBox.className = 'message-success';
         msgBox.style.display = 'block';
     }
 </script>
-
 </body>
 </html>
